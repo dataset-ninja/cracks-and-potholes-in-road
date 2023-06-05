@@ -57,7 +57,7 @@ if len(custom_data) >= 0:
         "homepage_url": "https://data.mendeley.com/datasets/t576ydh9v8/4",
         "license": "CC BY 4.0",
         "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
-        "preview_image_id": 49551,
+        "preview_image_id": 186409,
         "github_url": "https://github.com/dataset-ninja/cracks-and-potholes-in-road",
         "citation_url": "http://dx.doi.org/10.17632/t576ydh9v8.4",
         "download_sly_url": download_sly_url,

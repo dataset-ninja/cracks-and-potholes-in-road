@@ -85,6 +85,7 @@ def build_stats():
     ]
     heatmaps = dtools.ClassesHeatmaps(project_meta)
     classes_previews = dtools.ClassesPreview(project_meta, project_info.name, force=False)
+    previews = dtools.Previews(project_id, project_meta, api, team_id)
 
     for stat in stats:
         if not sly.fs.file_exists(f"./stats/{stat.basename_stem}.json"):
@@ -95,7 +96,10 @@ def build_stats():
         heatmaps.force = True
     if not sly.fs.file_exists(f"./visualizations/{classes_previews.basename_stem}.webm"):
         classes_previews.force = True
-    vstats = [stat for stat in [heatmaps, classes_previews] if stat.force]
+    if not api.file.dir_exists(team_id, f"/dataset/{project_id}/renders/"):
+        previews.force = True
+    vstats = [stat for stat in [heatmaps, classes_previews, previews] if stat.force]
+
 
     dtools.count_stats(
         project_id,
@@ -114,6 +118,8 @@ def build_stats():
             heatmaps.to_image(f"./stats/{heatmaps.basename_stem}.png", draw_style="outside_black")
         if classes_previews.force:
             classes_previews.animate(f"./visualizations/{classes_previews.basename_stem}.webm")
+        if previews.force:
+            previews.close()
 
     print("Stats done")
 

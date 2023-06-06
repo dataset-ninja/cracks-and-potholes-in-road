@@ -182,7 +182,7 @@ def main():
     pass
     build_stats()
     build_visualizations()
-    # build_summary()
+    build_summary()
 
 
 if __name__ == "__main__":

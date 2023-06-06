@@ -38,11 +38,11 @@ def convert_and_upload_project(api, workspace_id):
     idx_to_obj_class = {0: obj_class_road, 1: obj_class_crack, 2: obj_class_pothole}
 
 
-    project = api.project.create(workspace_id, project_name, change_name_if_conflict=True)
+    project_info = api.project.create(workspace_id, project_name)
     meta = sly.ProjectMeta(obj_classes=obj_class_collection)
-    api.project.update_meta(project.id, meta.to_json())
+    api.project.update_meta(project_info.id, meta.to_json())
 
-    dataset = api.dataset.create(project.id, ds_name, change_name_if_conflict=True)
+    dataset = api.dataset.create(project_info.id, ds_name, change_name_if_conflict=True)
 
 
     folders_list = os.listdir(dataset_path)
@@ -67,3 +67,5 @@ def convert_and_upload_project(api, workspace_id):
         api.annotation.upload_anns(img_ids, anns_batch)
 
         progress.update(len(images_names_batch))
+
+    return project_info

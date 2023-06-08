@@ -17,7 +17,11 @@ api = sly.Api.from_env()
 team_id = sly.env.team_id()
 workspace_id = sly.env.workspace_id()
 
-project_info = api.project.get_info_by_name(workspace_id, "Cracks and Potholes in Road")
+DOWNLOAD_ORIGINAL_URL = (
+    "https://prod-dcd-datasets-cache-zipfiles.s3.eu-west-1.amazonaws.com/t576ydh9v8-4.zip"
+)
+PROJECT_NAME = PROJECT_FULL_NAME = "Cracks and Potholes in Road"
+project_info = api.project.get_info_by_name(workspace_id, PROJECT_NAME)
 if project_info is None:
     project_info = convert_and_upload_project(api, workspace_id)
 
@@ -39,36 +43,44 @@ custom_data = project_info.custom_data
 
 # 2. get download link
 download_sly_url = dtools.prepare_download_link(project_info)
-dtools.update_sly_url_dict({project_id: download_sly_url})
+dtools.update_sly_url_dict(
+    {
+        PROJECT_NAME: {
+            "id": project_id,
+            "download_sly_url": download_sly_url,
+            "download_original_url": DOWNLOAD_ORIGINAL_URL,
+        }
+    }
+)
+sly.logger.info(f"Prepared download link: {download_sly_url}")
 
 
 # 3. upload custom data
-if len(custom_data) >= 0:
-    # preset fields
-    custom_data = {
-        # required fields
-        "name": "Cracks and Potholes in Road Images Dataset",
-        "fullname": "Cracks and Potholes in Road Images Dataset",
-        "cv_tasks": ["semantic segmentation", "object detection", "instance segmentation"],
-        "annotation_types": ["semantic segmentation"],
-        "industries": ["general domain"],
-        "release_year": 2020,
-        "homepage_url": "https://data.mendeley.com/datasets/t576ydh9v8/4",
-        "license": "CC BY 4.0",
-        "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
-        "preview_image_id": 186409,
-        "github_url": "https://github.com/dataset-ninja/cracks-and-potholes-in-road",
-        "citation_url": "http://dx.doi.org/10.17632/t576ydh9v8.4",
-        "download_sly_url": download_sly_url,
-        # optional fields
-        "download_original_url": "https://prod-dcd-datasets-cache-zipfiles.s3.eu-west-1.amazonaws.com/t576ydh9v8-4.zip",
-        # "paper": None,
-        # "organization_name": None,
-        # "organization_url": None,
-        # "tags": [],
-        "github": "dataset-ninja/cracks-and-potholes-in-road",
-    }
-    api.project.update_custom_data(project_id, custom_data)
+# preset fields
+custom_data = {
+    # required fields
+    "name": PROJECT_NAME,
+    "fullname": PROJECT_FULL_NAME,
+    "cv_tasks": ["semantic segmentation", "object detection", "instance segmentation"],
+    "annotation_types": ["semantic segmentation"],
+    "industries": ["general domain"],
+    "release_year": 2020,
+    "homepage_url": "https://data.mendeley.com/datasets/t576ydh9v8/4",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    "preview_image_id": 186409,
+    "github_url": "https://github.com/dataset-ninja/cracks-and-potholes-in-road",
+    "citation_url": "http://dx.doi.org/10.17632/t576ydh9v8.4",
+    "download_sly_url": download_sly_url,
+    # optional fields
+    "download_original_url": DOWNLOAD_ORIGINAL_URL,
+    # "paper": None,
+    # "organization_name": None,
+    # "organization_url": None,
+    # "tags": [],
+    "github": "dataset-ninja/cracks-and-potholes-in-road",
+}
+api.project.update_custom_data(project_id, custom_data)
 
 project_info = api.project.get_info_by_id(project_id)
 custom_data = project_info.custom_data
@@ -99,7 +111,6 @@ def build_stats():
     if not api.file.dir_exists(team_id, f"/dataset/{project_id}/renders/"):
         previews.force = True
     vstats = [stat for stat in [heatmaps, classes_previews, previews] if stat.force]
-
 
     dtools.count_stats(
         project_id,

@@ -115,7 +115,7 @@ def build_stats():
 
     if len(vstats) > 0:
         if heatmaps.force:
-            heatmaps.to_image(f"./stats/{heatmaps.basename_stem}.png")
+            heatmaps.to_image(f"./stats/{heatmaps.basename_stem}.png", output_width=940)
         if classes_previews.force:
             classes_previews.animate(f"./visualizations/{classes_previews.basename_stem}.webm")
         if previews.force:
@@ -178,11 +178,27 @@ def build_summary():
     print("Done.")
 
 
+def build_license():
+    print("Building license...")
+    ds_name = custom_data["name"]
+    license_url = custom_data["license_url"]
+    license = custom_data["license"]
+    homepage = custom_data["homepage_url"]
+    license_content = f"The {ds_name} data is under [{license}]({license_url}) license."
+    license_content += f"\n\n[🔗 Source]({homepage})\n\n"
+
+    with open("LICENSE.md", "w") as license_file:
+        license_file.write(license_content)
+
+    print("Done.")
+
+
 def main():
     pass
     build_stats()
     build_visualizations()
     build_summary()
+    build_license()
 
 
 if __name__ == "__main__":

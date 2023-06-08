@@ -6,8 +6,4 @@ Each image in the Cracks and Potholes in Road Images Dataset dataset has pixel-l
 
 Here are the visualized examples for each of the 3 classes:
 
-
-
-Here are the visualized examples for each of the 3 classes:
-
 [Dataset classes](https://github.com/dataset-ninja/cracks-and-potholes-in-road/raw/main/visualizations/classes_preview.webm)

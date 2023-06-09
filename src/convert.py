@@ -3,8 +3,9 @@
 import os
 
 import numpy as np
-import supervisely as sly
 from tqdm import tqdm
+
+import supervisely as sly
 
 project_name = "Cracks and Potholes in Road"
 dataset_path = "/Users/almaz/Downloads/v1"
@@ -30,20 +31,19 @@ def convert_and_upload_project(api, workspace_id):
 
         return sly.Annotation(img_size=(image_np.shape[0], image_np.shape[1]), labels=labels)
 
-
-    obj_class_road = sly.ObjClass("road", sly.Bitmap)
-    obj_class_crack = sly.ObjClass("cracks", sly.Bitmap)
-    obj_class_pothole = sly.ObjClass("pothole", sly.Bitmap)
-    obj_class_collection = sly.ObjClassCollection([obj_class_road, obj_class_crack, obj_class_pothole])
+    obj_class_road = sly.ObjClass("road", sly.Bitmap, color=[138, 96, 15])
+    obj_class_crack = sly.ObjClass("cracks", sly.Bitmap, color=[15, 138, 51])
+    obj_class_pothole = sly.ObjClass("pothole", sly.Bitmap, color=[71, 15, 138])
+    obj_class_collection = sly.ObjClassCollection(
+        [obj_class_road, obj_class_crack, obj_class_pothole]
+    )
     idx_to_obj_class = {0: obj_class_road, 1: obj_class_crack, 2: obj_class_pothole}
-
 
     project_info = api.project.create(workspace_id, project_name)
     meta = sly.ProjectMeta(obj_classes=obj_class_collection)
     api.project.update_meta(project_info.id, meta.to_json())
 
     dataset = api.dataset.create(project_info.id, ds_name, change_name_if_conflict=True)
-
 
     folders_list = os.listdir(dataset_path)
 

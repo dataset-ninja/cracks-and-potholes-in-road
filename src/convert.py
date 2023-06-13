@@ -13,7 +13,7 @@ ds_name = "ds0"
 batch_size = 30
 
 
-def convert_and_upload_project(api, workspace_id):
+def convert_and_upload_supervisely_project(api, workspace_id):
     def _create_ann(folder_name):
         labels = []
 

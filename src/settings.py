@@ -34,7 +34,7 @@ CLASS2COLOR: Optional[Dict[str, List[str]]] = None
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
 PAPER: Optional[str] = None
-CITATION_URL: Optional[str] = None
+CITATION_URL: Optional[str] = "http://dx.doi.org/10.17632/t576ydh9v8.4"
 ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
 ORGANIZATION_URL: Optional[Union[str, List[str]]] = None
 TAGS: List[str] = None

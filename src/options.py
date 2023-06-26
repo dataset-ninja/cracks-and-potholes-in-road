@@ -4,20 +4,20 @@
 
 # * Literal["ClassesPreview", "HorizontalGrid", "SideAnnotationsGrid"]
 # * If None, then preview_class will be set automatically to "ClassesPreview"
-PREVIEW_CLASS = None
+PREVIEW_CLASS = "Poster"
 
 IS_DETECTION_TASK: bool = None  # ? Set True if you want to visualize only bbox annotations
 
 ###############################################################
 ####### * Set up visualization params for Poster class ########
 POSTER_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
-POSTER_TITLE: str = None
+POSTER_TITLE: str = "Cracks and Potholes in Road Images"
 ###############################################################
 
 
 ###############################################################
 #### * Set up visualization params for HorizontalGrid class ###
-HORIZONTAL_GRID_ROWS: int = 3
+HORIZONTAL_GRID_ROWS: int = 2
 HORIZONTAL_GRID_COLS: int = 5
 HORIZONTAL_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
@@ -46,8 +46,8 @@ PREVIEWS_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 
 ###############################################################
 ### * Set up visualization params for ClassesPreview class ####
-CLASSES_PREVIEW_ROW_HEIGHT: int = None
-CLASSES_PREVIEW_PADDINGS: dict = None
+CLASSES_PREVIEW_ROW_HEIGHT: int = 350
+CLASSES_PREVIEW_PADDINGS: dict = {"top": "100px", "bottom": "100px", "left": "100px", "right": "100px"}
 CLASSES_PREVIEW_ROWS: int = 1
 CLASSES_PREVIEW_GAP: int = None
 # default {"top": "10%", "bottom": "10%", "left": "10%", "right": "10%"}

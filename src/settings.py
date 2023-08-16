@@ -15,12 +15,13 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME = "Cracks and Potholes in Road"
 PROJECT_NAME_FULL = "Cracks and Potholes in Road Images"
+HIDE_DATASET = False  # set False when 100% sure about repo quality
+
 
 ##################################
 # * After uploading to instance ##
 ##################################
 LICENSE: License = License.CC_BY_4_0()
-INDUSTRIES: List[Industry] = [Industry.Industrial()]
 APPLICATIONS: List[Union[Industry, Domain, Research]] = [Industry.Utilities(), Industry.Safety()]
 CATEGORY: Category = Category.EnergyAndUtilities()
 
@@ -43,10 +44,14 @@ DOWNLOAD_ORIGINAL_URL: Optional[
     Union[str, dict]
 ] = "https://prod-dcd-datasets-cache-zipfiles.s3.eu-west-1.amazonaws.com/t576ydh9v8-4.zip"
 
-CLASS2COLOR: Optional[Dict[str, List[str]]] = None
+CLASS2COLOR: Optional[Dict[str, List[str]]] = {
+    "road": [95, 77, 6],
+    "pothole": [21, 59, 86],
+    "cracks": [89, 27, 22],
+}
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
-PAPER: Optional[str] = "https://biankatpas.github.io/Cracks-and-Potholes-in-Road-Images-Dataset/"
+PAPER: Optional[str] = None
 CITATION_URL: Optional[str] = "http://dx.doi.org/10.17632/t576ydh9v8.4"
 AUTHORS: Optional[List[str]] = [
     "Bianka T. Passos",
@@ -88,6 +93,7 @@ def get_settings():
     settings = {
         "project_name": PROJECT_NAME,
         "license": LICENSE,
+        "hide_dataset": HIDE_DATASET,
         "applications": APPLICATIONS,
         "category": CATEGORY,
         "cv_tasks": CV_TASKS,

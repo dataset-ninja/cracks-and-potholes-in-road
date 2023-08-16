@@ -4,7 +4,7 @@
 
 # * Literal["ClassesPreview", "HorizontalGrid", "SideAnnotationsGrid"]
 # * If None, then preview_class will be set automatically to "ClassesPreview"
-PREVIEW_CLASS = "Poster"
+PREVIEW_CLASS = "HorizontalGridAnimated"
 
 IS_DETECTION_TASK: bool = None  # ? Set True if you want to visualize only bbox annotations
 
@@ -17,8 +17,8 @@ POSTER_TITLE: str = "Cracks and Potholes in Road Images"
 
 ###############################################################
 #### * Set up visualization params for HorizontalGrid class ###
-HORIZONTAL_GRID_ROWS: int = 2
-HORIZONTAL_GRID_COLS: int = 5
+HORIZONTAL_GRID_ROWS: int = 3
+HORIZONTAL_GRID_COLS: int = 4
 HORIZONTAL_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 
@@ -47,7 +47,12 @@ PREVIEWS_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 ### * Set up visualization params for ClassesPreview class ####
 CLASSES_PREVIEW_ROW_HEIGHT: int = 350
-CLASSES_PREVIEW_PADDINGS: dict = {"top": "100px", "bottom": "100px", "left": "100px", "right": "100px"}
+CLASSES_PREVIEW_PADDINGS: dict = {
+    "top": "100px",
+    "bottom": "100px",
+    "left": "100px",
+    "right": "100px",
+}
 CLASSES_PREVIEW_ROWS: int = 1
 CLASSES_PREVIEW_GAP: int = None
 # default {"top": "10%", "bottom": "10%", "left": "10%", "right": "10%"}
@@ -67,10 +72,10 @@ HEATMAP_OUTPUT_WIDTH: int = None
 ###############################################################
 
 
-
 ##################################
 ###### ? Do not edit bellow #####
 ##################################
+
 
 def get_visualization_options():
     vis_settings = {

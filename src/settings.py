@@ -45,9 +45,9 @@ DOWNLOAD_ORIGINAL_URL: Optional[
 ] = "https://prod-dcd-datasets-cache-zipfiles.s3.eu-west-1.amazonaws.com/t576ydh9v8-4.zip"
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = {
-    "road": [95, 77, 6],
-    "pothole": [21, 59, 86],
-    "cracks": [89, 27, 22],
+    "road": [242,197,16],
+    "pothole": [54,151,219],
+    "cracks": [229,74,64],
 }
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 

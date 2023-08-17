@@ -1,6 +1,6 @@
 Dataset **Cracks and Potholes in Road** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/y/I/Lr/26epK2YTmvuLxtSTMbQTqhrsULwvNcMjNQwPQvm766cAjDUYuCc81m82CoDSJxM8jU122CbgzDxRILFmeeUC4T5WMu0ygix1lHGQdILoFU27eh2XZVxcrJviCZCs.tar)
+ [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/J/K/V4/dCtoi7piYnPCVx8Eomm9sAByzTfVRKdzO9dbgQzDs8yXQaUpMpMXuN8ZGh8zyuv8rvgkFfEDdZbJiUDPoepbuyrnjvvGCzJlsfgA1jJPbbfsDfIoivf8AOgF4RjT.tar)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash

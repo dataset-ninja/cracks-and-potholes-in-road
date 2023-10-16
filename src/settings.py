@@ -51,7 +51,10 @@ CLASS2COLOR: Optional[Dict[str, List[str]]] = {
 }
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
-PAPER: Optional[str] = None
+PAPER: Optional[Union[str, List[str], Dict[str, str]]] = None
+BLOGPOST: Optional[Union[str, List[str], Dict[str, str]]] = "https://biankatpas.github.io/Cracks-and-Potholes-in-Road-Images-Dataset/"
+REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = "https://github.com/biankatpas/Cracks-and-Potholes-in-Road-Images-Dataset"
+
 CITATION_URL: Optional[str] = "http://dx.doi.org/10.17632/t576ydh9v8.4"
 AUTHORS: Optional[List[str]] = [
     "Bianka T. Passos",
@@ -112,6 +115,8 @@ def get_settings():
     settings["download_original_url"] = DOWNLOAD_ORIGINAL_URL
     settings["class2color"] = CLASS2COLOR
     settings["paper"] = PAPER
+    settings["blog"] = BLOGPOST
+    settings["repository"] = REPOSITORY
     settings["citation_url"] = CITATION_URL
     settings["authors"] = AUTHORS
     settings["organization_name"] = ORGANIZATION_NAME

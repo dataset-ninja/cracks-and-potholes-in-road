@@ -17,7 +17,6 @@ PROJECT_NAME = "Cracks and Potholes in Road"
 PROJECT_NAME_FULL = "Cracks and Potholes in Road Images"
 HIDE_DATASET = False  # set False when 100% sure about repo quality
 
-
 ##################################
 # * After uploading to instance ##
 ##################################
@@ -53,7 +52,7 @@ CLASS2COLOR: Optional[Dict[str, List[str]]] = {
 
 PAPER: Optional[Union[str, List[str], Dict[str, str]]] = None
 BLOGPOST: Optional[Union[str, List[str], Dict[str, str]]] = "https://biankatpas.github.io/Cracks-and-Potholes-in-Road-Images-Dataset/"
-REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = "https://github.com/biankatpas/Cracks-and-Potholes-in-Road-Images-Dataset"
+REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = {"GitHub":"https://github.com/biankatpas/Cracks-and-Potholes-in-Road-Images-Dataset"}
 
 CITATION_URL: Optional[str] = "http://dx.doi.org/10.17632/t576ydh9v8.4"
 AUTHORS: Optional[List[str]] = [
@@ -63,6 +62,7 @@ AUTHORS: Optional[List[str]] = [
     "Kátya B. Medeiros",
     "Eros Comunello",
 ]
+AUTHORS_CONTACTS: Optional[List[str]] = ["biankatpas@gmail.com"]
 
 
 ORGANIZATION_NAME: Optional[Union[str, List[str]]] = [
@@ -119,6 +119,7 @@ def get_settings():
     settings["repository"] = REPOSITORY
     settings["citation_url"] = CITATION_URL
     settings["authors"] = AUTHORS
+    settings["authors_contacts"] = AUTHORS_CONTACTS
     settings["organization_name"] = ORGANIZATION_NAME
     settings["organization_url"] = ORGANIZATION_URL
     settings["slytagsplit"] = SLYTAGSPLIT

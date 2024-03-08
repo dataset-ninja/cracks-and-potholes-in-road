@@ -2,7 +2,7 @@
 
 The dataset consists of 2235 images with 4720 labeled objects belonging to 3 different classes including *road*, *cracks*, and *pothole*.
 
-Images in the Cracks and Potholes in Road dataset have pixel-level semantic segmentation annotations. All images are labeled (i.e. with annotations). There are no pre-defined <i>train/val/test</i> splits in the dataset. The dataset was released in 2020 by the Universidade do Vale do Itajai, Brazil and DNIT, Brazil.
+Images in the Cracks and Potholes in Road dataset have pixel-level semantic segmentation annotations. All images are labeled (i.e. with annotations). There are no pre-defined <i>train/val/test</i> splits in the dataset. The dataset was released in 2020 by the <span style="font-weight: 600; color: grey; border-bottom: 1px dashed #d3d3d3;">Universidade do Vale do Itajai, Brazil</span> and <span style="font-weight: 600; color: grey; border-bottom: 1px dashed #d3d3d3;">DNIT, Brazil</span>.
 
 Here is the visualized example grid with animated annotations:
 
